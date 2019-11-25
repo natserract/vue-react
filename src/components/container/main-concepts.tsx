@@ -1,3 +1,4 @@
+import { VNode } from 'vue'
 import { createComponent } from "@vue/composition-api";
 
 /* Chilren */
@@ -10,37 +11,34 @@ const Children = createComponent({
     `
 })
 
-
 /* Components and Props */
 const ComponentProps = createComponent({
     name: 'ComponentProps',
     props: {
         name: String,
-        commentIds: Array
+        commentId: Array as () => string[]
     },
     setup(props) {
         return () => (
-            <div class="components-props">
+            <div className="components-props">
                 <h2>{props.name}</h2>
-                <p>{props.commentIds}</p>
+                <p>{props.commentId}</p>
             </div>
         )
-    },
+    }
 })
-
 
 /* Conditional Rendering */
 
 const ConditionalRendering = createComponent({
     name: 'ConditionalRendering',
     props: {
-        show: Boolean,
+        show: Boolean
     },
     setup(props) {
         return () => props.show ? <p>True Condition</p> : <p>False Condition</p>
     }
 })
-
 
 /* Handling Events */
 const HandlingEvent = createComponent({
@@ -53,7 +51,7 @@ const HandlingEvent = createComponent({
                 Click Event
             </button>
         )
-    },
+    }
 })
 
 const MapComponent = createComponent({
@@ -64,35 +62,37 @@ const MapComponent = createComponent({
     },
     setup(props) {
         return () => (
-            <div>
-                {props.render.map((item: Object) => createComponent({
-                    setup() {
-                        return () => (
-                            <div>
-                                {item}
-                            </div>
-                        )
-                    }
-                })
+            <ul>
+                {props.render.map((item: number[]) =>
+                    <li>{item}</li>
                 )}
-            </div>
+            </ul>
         )
     }
 })
 
+
 /* Wrap All Component Here */
-let arr = [1, 2, 3]
 const RootMainConcept = createComponent({
     render() {
+        const arr: number[] = [1, 2, 3];
+
         return (
             <div>
-                <ComponentProps name="Your name here" commentIds={['1', '2', '3']} />
-                <ConditionalRendering show={false} />
-                <Children>Children Component</Children>
-                <MapComponent render={arr} />
-                <HandlingEvent />
+                <mainComponentProps name="Your name here" commentId={['Name1', 'Name2']} />
+                <conditionalRendering show={false} />
+                <children>Children Component</children>
+                <mapComponent render={arr} />
+                <handlingEvent />
             </div>
         )
+    },
+    components: {
+        mainComponentProps: ComponentProps,
+        conditionalRendering: ConditionalRendering,
+        children: Children,
+        mapComponent: MapComponent,
+        handlingEvent: HandlingEvent
     }
 });
 

@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import App from './app.root';
+import App from './App';
 import VueCompositionApi from '@vue/composition-api';
 
 Vue.config.productionTip = false;

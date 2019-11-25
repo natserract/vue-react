@@ -7,10 +7,9 @@ import {
     watch as useEffect
 } from '@vue/composition-api';
 
-
 const LifecycleHooks = createComponent({
     setup() {
-        const state = useState<{ loading: boolean, users: Object, count: number }>({
+        const state = useState<{ loading: boolean, users: object, count: number }>({
             loading: false,
             users: [],
             count: 0

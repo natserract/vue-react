@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "outDir": "build/dist",
         "module": "commonjs",
         "target": "es5",
         "lib": [
@@ -8,23 +7,22 @@
             "dom"
         ],
         "sourceMap": true,
-        "allowJs": true,
+        "allowJs": false,
         "jsx": "preserve",
+        "strict": true,
         "moduleResolution": "node",
         "rootDir": "src",
         "noImplicitReturns": true,
         "noImplicitThis": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true
+        "noImplicitAny": false,
+        "strictNullChecks": true,
     },
     "exclude": [
         "node_modules",
         "build",
         "scripts",
-        "acceptance-tests",
         "webpack",
         "jest",
-        "src/setupTests.ts"
     ],
     "types": [
         "typePatches"

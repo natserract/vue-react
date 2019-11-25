@@ -1,6 +1,4 @@
-
 import Vue from 'vue'
-
 
 type VueAPITypes<T> = T & {
     BasicHOC: (args: T) => void,
