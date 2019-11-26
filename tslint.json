@@ -42,6 +42,8 @@
         "eofline": false,
         "no-trailing-whitespace": false,
         "typedef-whitespace": false,
-        "whitespace": false
+        "whitespace": false,
+        "no-shadowed-variable": false,
+        "label-position": false
     }
 }

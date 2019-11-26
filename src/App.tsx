@@ -1,37 +1,38 @@
 import Vue from 'vue'
-import { createComponent } from '@vue/composition-api'
 import MainConcept from './components/container/main-concepts'
 import LifecycleHooks from './components/container/lifecycle-hooks'
 
-import Provider from 'vuejs-redux'
-import store from './redux/index'
+import ContextConsumer from './redux'
+import * as actions from './redux/action/user.action'
 
 export default Vue.component('App', {
   render() {
     return (
-      <Provider mapStateToProps={this.mapStateToProps} store={this.store}>
-        {({ viewData }) => (
-          console.log(viewData)
+      <ContextConsumer mapStateToProps={this.mapStateToProps} mapDispatchToProps={this.mapDispatchToProps}>
+        {({ incrementAction, userData }) => (
+          <div>
+            <span>{userData.user}</span>
+            <button onClick={incrementAction}>Increment</button>
+          </div>
         )}
-      </Provider>
+      </ContextConsumer>
     )
   },
 
-  data: () => ({
-    store
-  }),
+  components: {
+    ContextConsumer
+  },
 
   methods: {
     mapStateToProps(state) {
       return {
-        viewData: state.user
+        userData: state
+      }
+    },
+    mapDispatchToProps(dispatch) {
+      return {
+        incrementAction: () => dispatch(actions.increment())
       }
     }
-  },
-
-  components: {
-    Provider,
-    mainConcept: MainConcept,
-    lifecycleHooks: LifecycleHooks
   }
 })

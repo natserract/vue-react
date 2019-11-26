@@ -1,14 +1,15 @@
-import { VNode } from 'vue'
+import Vue from 'vue'
 import { createComponent } from "@vue/composition-api";
 
 /* Chilren */
-const Children = createComponent({
-    name: 'Children',
-    template: `
-        <div>
-            <slot></slot>
-        </div>
-    `
+const Children = Vue.component('Children', {
+    render() {
+        return (
+            <div className="children">
+                {this.$slots.default}
+            </div>
+        )
+    }
 })
 
 /* Components and Props */
@@ -63,14 +64,13 @@ const MapComponent = createComponent({
     setup(props) {
         return () => (
             <ul>
-                {props.render.map((item: number[]) =>
-                    <li>{item}</li>
+                {props.render.map((item, index) =>
+                    <li key={index}>{item}</li>
                 )}
             </ul>
         )
     }
 })
-
 
 /* Wrap All Component Here */
 const RootMainConcept = createComponent({
