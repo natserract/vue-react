@@ -43,15 +43,15 @@ const ConditionalRendering = createComponent({
 
 /* Handling Events */
 const HandlingEvent = createComponent({
-    setup() {
-        const handleButtonClick = () => {
-            alert('Button is clicked');
-        }
+    setup(props) {
         return () => (
-            <button onClick={handleButtonClick}>
+            <button onClick={props.handleButtonClick}>
                 Click Event
             </button>
         )
+    },
+    props: {
+        handleButtonClick: Function as () => void
     }
 })
 
@@ -83,7 +83,7 @@ const RootMainConcept = createComponent({
                 <conditionalRendering show={false} />
                 <children>Children Component</children>
                 <mapComponent render={arr} />
-                <handlingEvent />
+                <handlingEvent handleButtonClick={() => alert("Click event. This works!")} />
             </div>
         )
     },

@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import MainConcept from './components/container/main-concepts'
 import LifecycleHooks from './components/container/lifecycle-hooks'
+import SingleComponent from './components/container/single-component'
+import ComponentContainer from './components/container/component-wrap'
 
 import ContextConsumer from './redux'
 import * as actions from './redux/action/user.action'
@@ -10,10 +12,13 @@ export default Vue.component('App', {
     return (
       <ContextConsumer mapStateToProps={this.mapStateToProps} mapDispatchToProps={this.mapDispatchToProps}>
         {({ incrementAction, userData }) => (
-          <div>
-            <span>{userData.user}</span>
-            <button onClick={incrementAction}>Increment</button>
-          </div>
+          <ComponentContainer>
+            <SingleComponent
+              value={userData.user}
+              handleClick={incrementAction} />
+            <MainConcept />
+            <LifecycleHooks />
+          </ComponentContainer>
         )}
       </ContextConsumer>
     )
