@@ -2,7 +2,7 @@
 import Vue from 'vue'
 
 const useDataFetchingHOC = (WrappedComponent: JSX.IntrinsicElements) => (urlParam: string) => {
-    return Vue.component('HOCWithProps', {
+    return Vue.component('HOCFetch', {
         data: () => ({
             fetchData: null
         }),
