@@ -12,7 +12,7 @@
         "strict": true,
         "moduleResolution": "node",
         "rootDir": "src",
-        "noImplicitReturns": true,
+        "noImplicitReturns": false,
         "noImplicitThis": true,
         "noImplicitAny": false,
         "strictNullChecks": true,

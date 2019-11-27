@@ -1,11 +1,12 @@
-import Vue from 'vue'
-import MainConcept from './components/container/main-concepts'
-import LifecycleHooks from './components/container/lifecycle-hooks'
-import SingleComponent from './components/container/single-component'
-import ComponentContainer from './components/container/component-wrap'
+import Vue from 'vue';
+import ContextConsumer from './redux';
+import * as actions from './redux/action/user.action';
 
-import ContextConsumer from './redux'
-import * as actions from './redux/action/user.action'
+import MainConcept from './components/container/main-concepts';
+import LifecycleHooks from './components/container/lifecycle-hooks';
+import SingleComponent from './components/container/single-component';
+import ComponentContainer from './components/container/component-wrap';
+import ImplementOfHOC from './components/container/usingHOC'
 
 export default Vue.component('App', {
   render() {
@@ -18,6 +19,7 @@ export default Vue.component('App', {
               handleClick={incrementAction} />
             <MainConcept />
             <LifecycleHooks />
+            <ImplementOfHOC/>
           </ComponentContainer>
         )}
       </ContextConsumer>

@@ -7,12 +7,11 @@ import {
     watch as useEffect
 } from '@vue/composition-api';
 
-const LifecycleHooks = createComponent({
+const Lifecycle = createComponent({
     setup() {
-        const state = useState<{ loading: boolean, users: object, count: number }>({
+        const state = useState<{ loading: boolean, users: object }>({
             loading: false,
-            users: [],
-            count: 0
+            users: []
         })
 
         componentWillMount(() => {
@@ -39,24 +38,30 @@ const LifecycleHooks = createComponent({
             console.log("Component Will Unmount")
         })
 
-        // re-run it whenever the dependencies have changed - state.users is dependency
+        return () => (
+            <p>{state.loading ? JSON.stringify(state.users) : <p>Loading...</p>}</p>
+        )
+    }
+})
+
+export const Hooks = createComponent({
+    setup() {
+        const state = useState<{ count: number }>({
+            count: 0
+        })
+
+        // Re-run it whenever the dependencies have changed - state.users is dependency
         useEffect(() => state.count, (nextState, prevState) => {
             console.log(nextState, '<= this is nextState')
             console.log(prevState, '<= this is prevState');
         })
 
         return () => (
-            <div>
-                {/* Fetch data - lifecycle hooks */}
-                <p>{!state.loading ? <p>Loading...</p> : JSON.stringify(state.users)}</p>
-
-                {/* Implementation of watch API */}
-                <button onClick={() => state.count++}>
-                    Update Value
-                </button>
-            </div>
+            <button onClick={() => state.count++}>
+                Update Value
+            </button>
         )
     }
 })
 
-export default LifecycleHooks
+export default Lifecycle

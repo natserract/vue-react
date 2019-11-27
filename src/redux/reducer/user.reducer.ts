@@ -4,7 +4,7 @@ type Action =
     { type: 'DECREMENT' } |
     { type: 'RESET' };
 
-const Counter = (state = 0, action: Action) => {
+const Counter = (state: number = 0, action: Action) => {
     switch (action.type) {
         case 'INCREMENT':
             return state + 1;
