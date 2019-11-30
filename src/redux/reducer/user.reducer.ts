@@ -1,19 +1,18 @@
 
-type Action =
-    { type: 'INCREMENT' } |
-    { type: 'DECREMENT' } |
-    { type: 'RESET' };
+type Action = { type: 'INCREMENT' } | { type: 'DECREMENT' } | { type: 'RESET' };
 
 const Counter = (state: number = 0, action: Action) => {
     switch (action.type) {
-        case 'INCREMENT':
+        case 'INCREMENT': {
             return state + 1;
-        case 'DECREMENT':
+        }
+        case 'DECREMENT': {
             return state - 1;
-        case 'RESET':
+        }
+        case 'RESET': {
             return state
-        default:
-            return state
+        }
+        default: return state
     }
 }
 

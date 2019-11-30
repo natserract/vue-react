@@ -7,13 +7,13 @@ import RootReducer from './rootReducer'
 
 const store = createStore(RootReducer);
 
-export default Vue.component('ContextConsumer', {
+export default Vue.component('Provider', {
     render() {
         return (
-            <Provider
-                mapStateToProps={this.mapStateToProps}
-                mapDispatchToProps={this.mapDispatchToProps}
-                store={store}>
+            <Provider 
+                mapStateToProps={this.mapStateToProps} 
+                mapDispatchToProps={this.mapDispatchToProps} 
+                store={store}> 
                 {this.$scopedSlots.default}
             </Provider>
         )

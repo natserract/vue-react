@@ -1,15 +1,17 @@
 
 import { createComponent } from '@vue/composition-api'
-import useDataFetchHOC from '../presentational/hoc-component'
+import useDataFetchingHOC from '../presentational/hoc-component'
 
-const ContainerComponent = createComponent({
+const dataSourceUrl = "https://jsonplaceholder.typicode.com/users";
+
+const ContentSite = createComponent({
     setup() {
       return () => (
-        <div>
-          <p>This is component using HOC</p>
+        <div className="content">
+          <p>Yes, i'm in HOC</p>
         </div>
       )
     }
   })
 
-export default useDataFetchHOC(ContainerComponent)("https://jsonplaceholder.typicode.com/users")
+export default useDataFetchingHOC(ContentSite)(dataSourceUrl)

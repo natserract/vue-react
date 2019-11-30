@@ -24,7 +24,7 @@ const useDataFetchingHOC = (WrappedComponent: JSX.IntrinsicElements) => (urlPara
                     attrs: this.$attrs,
                     props: this.$props,
                     on: this.$listeners
-                })
+            })
         }
     })
 };

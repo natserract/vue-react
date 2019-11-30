@@ -17,13 +17,13 @@ const ComponentProps = createComponent({
     name: 'ComponentProps',
     props: {
         name: String,
-        commentId: Array as () => string[]
+        authorName: Array as () => string[]
     },
     setup(props) {
         return () => (
             <div className="components-props">
                 <h2>{props.name}</h2>
-                <p>{props.commentId}</p>
+                <p>{props.authorName}</p>
             </div>
         )
     }
@@ -79,7 +79,7 @@ const RootMainConcept = createComponent({
 
         return (
             <div>
-                <mainComponentProps name="Your name here" commentId={['Name1', 'Name2']} />
+                <mainComponentProps name="Your name here" authorName={['Name1', 'Name2']} />
                 <conditionalRendering show={false} />
                 <children>Children Component</children>
                 <mapComponent render={arr} />
