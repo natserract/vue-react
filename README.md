@@ -1,23 +1,18 @@
 # React Design Pattern in VueJS
 
-Implement React Design Patterns in VueJS
+This is the code repository for React Design Patterns in VueJS
 
-> A Vue.js project
+### Patterns ###
+* [Function Component](https://github.com/alfinsuryaS/Vue-like-React/blob/master/src/components/container/main-concepts.tsx)
+* [Children](https://github.com/alfinsuryaS/Vue-like-React/blob/master/src/components/container/main-concepts.tsx#L5)
+* [Props](https://github.com/alfinsuryaS/Vue-like-React/blob/master/src/components/container/main-concepts.tsx#L16)
+* [Conditional Rendering](https://github.com/alfinsuryaS/Vue-like-React/blob/master/src/components/container/main-concepts.tsx#L34)
+* [Lists & Keys](https://github.com/alfinsuryaS/Vue-like-React/blob/master/src/components/container/main-concepts.tsx#L58)
+* [Redux](https://github.com/alfinsuryaS/Vue-like-React/tree/master/src/redux)
+* [HOC](https://github.com/alfinsuryaS/Vue-like-React/blob/master/src/components/presentational/hoc-component.ts)
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+## Run project
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+npm install
+npm start
+```
