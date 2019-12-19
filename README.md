@@ -1,6 +1,6 @@
 # React Design Pattern in VueJS
 
-This is the code repository for React Design Patterns in VueJS
+This is the code repository for implementing React Design Patterns in VueJS
 
 ### Patterns ###
 * [Function Component](https://github.com/alfinsuryaS/Vue-like-React/blob/master/src/components/container/main-concepts.tsx)
